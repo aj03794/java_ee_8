@@ -1,7 +1,6 @@
 package restservice;
 
 import beans.QualifierBean;
-import beans.ScopeBean;
 import models.Todo;
 import scopes.RequestScope;
 import scopes.SessionScope;
@@ -21,11 +20,11 @@ public class TodoRest {
     @Inject
     TodoService todoService;
 
-//    @Inject
-//    RequestScope requestScope;
-//
-//    @Inject
-//    SessionScope sessionScope;
+    @Inject
+    RequestScope requestScope;
+
+    @Inject
+    SessionScope sessionScope;
 
     // Could also just make return type Todo in the method definition
     // To hit this endpoint
@@ -53,6 +52,8 @@ public class TodoRest {
     @Path("/list")
     @GET
     public List<Todo> getTodo() {
+        System.out.println("Request scope" + requestScope.getHashCode());
+        System.out.println("Session scope" + sessionScope.getHashCode());
         return todoService.getTodos();
     }
 

@@ -1,8 +1,6 @@
 package beans;
 
 import io.quarkus.runtime.StartupEvent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import qualifiers.annotations.Web;
 import scopes.DependentScope;
 import scopes.RequestScope;
@@ -11,17 +9,25 @@ import scopes.SessionScope;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 @Web
+//@RequestScoped
 public class ScopeBean {
 
 //     This is a contextual instance
-    @Inject
-    private RequestScope requestScope;
+//    @Inject
+//    private RequestScope requestScope;
 
-    private static final Logger logger = LoggerFactory.getLogger("ScopeBean");
+//    private static final Logger logger = LoggerFactory.getLogger("ScopeBean");
+
+    @Inject
+    private Logger logger;
 
     private DependentScope dependentScope;
     private SessionScope sessionScope;
@@ -38,8 +44,12 @@ public class ScopeBean {
         this.sessionScope = sessionScope;
     }
 
+    public void sayHello() {
+        System.out.println("HELLO");
+    }
+
     void onStart(@Observes StartupEvent ev) {
-        System.out.println("The application is starting...{}");
+       logger.log(Level.INFO,"The application is starting...{}");
     }
 
 //     Lifecycle callback
@@ -49,18 +59,18 @@ public class ScopeBean {
 //     This method is invoked just before the bean is actually used
     @PostConstruct
     private void init() {
-        System.out.println("*************************");
-        System.out.println("POST CONSTRUCT");
-        System.out.println("*************************");
+        logger.log(Level.INFO,"*************************");
+        logger.log(Level.INFO,"PostConstruct Hook");
+        logger.log(Level.INFO,"*************************");
     }
 
     // Invoked just before the bean is destroyed
     // When CDI container is done with bean and it releases it for garbage collection, then this hook is called
     @PreDestroy
     private void kill() {
-        System.out.println("*****************************");
-        System.out.println("PreDestroy hook");
-        System.out.println("*****************************");
+        logger.log(Level.INFO,"*************************");
+        logger.log(Level.INFO,"PreConstruct Hook");
+        logger.log(Level.INFO,"*************************");
     }
 
 }
