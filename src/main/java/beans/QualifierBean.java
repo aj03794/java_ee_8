@@ -8,14 +8,17 @@ import javax.inject.Inject;
 @Web
 public class QualifierBean {
 
+    // Links to the Soldier class under qualifiers
     @Inject
     @ServiceMan(value = ServiceMan.ServiceType.SOLDIER)
     public Salute soldierSalute;
 
+    // Links to the Salute producer in LoggerProducer class
     @Inject
     @Police
     public Salute policeSalute;
 
+    // Links to the Police class under qualifiers
     @Inject
     @ServiceMan(value = ServiceMan.ServiceType.POLICE)
     public Salute policeSaluteTwo;
