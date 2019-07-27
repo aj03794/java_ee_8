@@ -1,22 +1,20 @@
 package producers;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+//@ApplicationScoped
 public class LuckyDishProducer {
-
-    @Inject
-    EntityManager entityManager;
 
     @Produces
     // Could do this and it would inject the logger from LoggerProducer
-    public List<String> getLuckyDish(Logger logger) {
-//    public List<String> getLuckyDish() {
+//    public List<String> getLuckyDish(Logger logger) {
+    public List<String> getLuckyDish() {
+        System.out.println("get luck dish function");
         var dishes = new ArrayList<String>();
         dishes.add("A");
         dishes.add("B");
@@ -29,6 +27,7 @@ public class LuckyDishProducer {
     }
 
     public void dispose(@Disposes List<String> dishes) {
+        System.out.println("CALLING DISPOSE METHOD");
         dishes = null;
     }
 }

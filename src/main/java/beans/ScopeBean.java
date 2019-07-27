@@ -42,10 +42,6 @@ public class ScopeBean {
         this.sessionScope = sessionScope;
     }
 
-    public void sayHello() {
-        System.out.println("HELLO");
-    }
-
     void onStart(@Observes StartupEvent ev) {
        logger.log(Level.INFO,"The application is starting...{}");
     }

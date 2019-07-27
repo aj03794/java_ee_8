@@ -16,9 +16,9 @@ import java.util.logging.Logger;
 @ApplicationScoped
 public class LoggerProducer {
 
-
     @Produces
     public Logger produceLogger (InjectionPoint injectionPoint) {
+        System.out.println(injectionPoint.getMember().getDeclaringClass().getName());
         return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
     }
 
