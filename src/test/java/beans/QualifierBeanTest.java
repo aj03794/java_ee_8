@@ -18,6 +18,7 @@ class QualifierBeanTest {
         qualifierBean.setName("hello world");
         qualifierBean.policeSalutation();
         qualifierBean.soldierSalutation();
+        qualifierBean.policeSalutationTwo();
     }
 
 }

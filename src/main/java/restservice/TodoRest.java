@@ -1,6 +1,5 @@
 package restservice;
 
-import beans.QualifierBean;
 import models.Todo;
 import scopes.RequestScope;
 import scopes.SessionScope;

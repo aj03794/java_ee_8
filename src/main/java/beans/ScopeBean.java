@@ -24,8 +24,6 @@ public class ScopeBean {
 //    @Inject
 //    private RequestScope requestScope;
 
-//    private static final Logger logger = LoggerFactory.getLogger("ScopeBean");
-
     @Inject
     private Logger logger;
 

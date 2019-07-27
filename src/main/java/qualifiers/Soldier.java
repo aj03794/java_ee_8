@@ -10,6 +10,6 @@ import java.text.MessageFormat;
 public class Soldier implements Salute {
     @Override
     public String salute(String name) {
-        return MessageFormat.format("Police {0}", name);
+        return MessageFormat.format("Soldier {0}", name);
     }
 }
