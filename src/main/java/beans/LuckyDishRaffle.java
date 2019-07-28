@@ -1,5 +1,7 @@
 package beans;
 
+import qualifiers.annotations.LoggedInterceptor;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
@@ -18,6 +20,7 @@ public class LuckyDishRaffle {
 
     private final Random random = new Random();
 
+    @LoggedInterceptor
     public void printLuckDish() {
         logger.log(Level.INFO,"*************************");
         System.out.println(logger);
