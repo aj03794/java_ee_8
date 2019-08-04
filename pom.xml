@@ -59,6 +59,11 @@
             <artifactId>quarkus-jdbc-postgresql</artifactId>
             <version>0.19.1</version>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-health</artifactId>
+            <version>0.19.1</version>
+        </dependency>
 
         <!-- Testing: -->
         <dependency>

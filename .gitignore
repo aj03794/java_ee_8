@@ -4,3 +4,4 @@ target
 .settings
 .idea
 ObjectStore
+.DS_STORE
