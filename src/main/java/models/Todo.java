@@ -1,5 +1,6 @@
 package models;
 
+import javax.enterprise.inject.Model;
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
